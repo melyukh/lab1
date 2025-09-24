@@ -1,12 +1,23 @@
 public class SWriter
 {
-    private readonly string outputFilePath = "../../../TxtFiles/outputFile.txt";
+    private readonly string outputFilePath;
     public void Write(List<string> text)
     {
+        if (text == null || text.Count == 0)
+            throw new NullReferenceException("результирующий текст пуст");
+
         StreamWriter writer = new(outputFilePath);
         foreach (var line in text)
             writer.WriteLine(line);
 
         writer.Close();
+    }
+
+    public SWriter() 
+    {
+        DirectoryInfo currentDirectory = new DirectoryInfo(Directory.GetCurrentDirectory());
+        outputFilePath = System.Environment.OSVersion.Platform == PlatformID.Unix
+            ? currentDirectory.FullName + "../../../outputFile.txt"
+            : currentDirectory.FullName + "..\\..\\..\\..\\TxtFiles\\outputFile.txt";
     }
 }

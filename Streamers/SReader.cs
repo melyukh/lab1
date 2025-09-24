@@ -1,7 +1,7 @@
 public class SReader
 {
-    private readonly string initFilePath = "../../../TxtFiles/initFile.txt";
-    private readonly string initDataTypePath = "../../../TxtFiles/initDataTypeFile.txt";
+    private readonly string initFilePath;
+    private readonly string initDataTypePath;
     private readonly int numOfLines;
     public void Initialize(out Dictionary<string, ISet<int>> nameAndSetsPairs, out string operationLine)
     {
@@ -69,6 +69,13 @@ public class SReader
     }
     public SReader()
     {
+        DirectoryInfo currentDirectory = new DirectoryInfo(Directory.GetCurrentDirectory());
+        initDataTypePath = System.Environment.OSVersion.Platform == PlatformID.Unix
+            ? currentDirectory.FullName + "../../../TxtFiles.initDataTypeFile.txt"
+            : currentDirectory.FullName + "..\\..\\..\\..\\TxtFiles\\initDataTypeFile.txt";
+        initFilePath = System.Environment.OSVersion.Platform == PlatformID.Unix
+            ? currentDirectory.FullName + "../../../TxtFiles.initFile.txt"
+            : currentDirectory.FullName + "..\\..\\..\\..\\TxtFiles\\initFile.txt";
         numOfLines = File.ReadLines(initFilePath).Count();
     }
 }

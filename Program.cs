@@ -43,7 +43,7 @@
             set is SetClass<T>
             ? $"Множество типа {typeof(T)}" 
             : $"Множество, близкое к универсальному, типа {typeof(T)}",
-            set.Set.Count != 0 ? '{' + String.Join(' ', set.Set)+ '}' : "∅" 
+            set.Set.Count != 0 ? '{' + String.Join(' ', set.Set)+ '}' : "*пустое множество*" 
         };
     }
 }
