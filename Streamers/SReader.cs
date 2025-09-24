@@ -71,10 +71,10 @@ public class SReader
     {
         DirectoryInfo currentDirectory = new DirectoryInfo(Directory.GetCurrentDirectory());
         initDataTypePath = System.Environment.OSVersion.Platform == PlatformID.Unix
-            ? currentDirectory.FullName + "../../../TxtFiles.initDataTypeFile.txt"
+            ? currentDirectory.FullName + "../../../../TxtFiles/initDataTypeFile.txt"
             : currentDirectory.FullName + "..\\..\\..\\..\\TxtFiles\\initDataTypeFile.txt";
         initFilePath = System.Environment.OSVersion.Platform == PlatformID.Unix
-            ? currentDirectory.FullName + "../../../TxtFiles.initFile.txt"
+            ? currentDirectory.FullName + "../../../../TxtFiles/initFile.txt"
             : currentDirectory.FullName + "..\\..\\..\\..\\TxtFiles\\initFile.txt";
         numOfLines = File.ReadLines(initFilePath).Count();
     }

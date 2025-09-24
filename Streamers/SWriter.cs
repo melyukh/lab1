@@ -4,7 +4,7 @@ public class SWriter
     public void Write(List<string> text)
     {
         if (text == null || text.Count == 0)
-            throw new NullReferenceException("результирующий текст пуст");
+            throw new NullReferenceException("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ");
 
         StreamWriter writer = new(outputFilePath);
         foreach (var line in text)
@@ -17,7 +17,7 @@ public class SWriter
     {
         DirectoryInfo currentDirectory = new DirectoryInfo(Directory.GetCurrentDirectory());
         outputFilePath = System.Environment.OSVersion.Platform == PlatformID.Unix
-            ? currentDirectory.FullName + "../../../outputFile.txt"
+            ? currentDirectory.FullName + "../../../../TxtFiles/outputFile.txt"
             : currentDirectory.FullName + "..\\..\\..\\..\\TxtFiles\\outputFile.txt";
     }
 }
