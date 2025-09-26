@@ -25,7 +25,6 @@
             reader.Initialize(out Dictionary<string, ISet<double>> dict, out string operationLine);
             result = Calculator<double>(operationLine, dict);
         }
-
         //вывод результата в файл outputFile
         writer.Write(result!);
     }
