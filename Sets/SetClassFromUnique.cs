@@ -3,7 +3,9 @@
     представляет из себя множество, которое получается при дополнении обычного множества
     поддерживает все операции что и обычное, при дополнении результатом будет множество из обычного класса
 */
-public class SetClassFromUnique<T> : ISet<T>
+using System.Reflection.Metadata.Ecma335;
+
+public class SetClassFromUnique<T> : ISet<T> where T : IComparable<T>
 {
     private List<T> _set; //хранит элементы, которые исключены из универсального множества
     private readonly string _name; //имя множества
@@ -22,6 +24,9 @@ public class SetClassFromUnique<T> : ISet<T>
         _name = name;
     }
 
+    public void Sort()
+        => this.Set.Sort();
+    
     public SetClassFromUnique(List<T> set) : this(set, "_") { }
 
     public ISet<T> Union(ISet<T> set)

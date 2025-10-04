@@ -1,10 +1,10 @@
 /*
     класс множества
 */
-public class SetClass<T> : ISet<T>
+public class SetClass<T> : ISet<T> where T: IComparable<T>
 {
     private List<T> _set; //элементы множества
-    private readonly string _name; //имя множества
+    private string _name; //имя множества
     public List<T> Set
     {
         get { return _set; }
@@ -19,6 +19,9 @@ public class SetClass<T> : ISet<T>
         _name = name;
     }
 
+    public void Sort(List<T> set, string name)
+        => this.Set.Sort();
+    
     public SetClass(List<T> set) : this(set, "_") { }
 
     public ISet<T> Union(ISet<T> set)

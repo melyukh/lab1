@@ -1,4 +1,4 @@
-public interface ISet<T>
+public interface ISet<T> where T : IComparable<T>
 {
     public List<T> Set
     {
