@@ -3,7 +3,7 @@ using System.Text;
 /*
     алгоритм, вычисляющий результат выражения после преобразования в польскую обратную нотацию
 */
-class Computer<T>
+class Computer<T> where T: IComparable<T>
 {
     public ISet<T> ComputeSet(string line, Dictionary<string, ISet<T>> occurencesOfNamesAndSets)
     {
